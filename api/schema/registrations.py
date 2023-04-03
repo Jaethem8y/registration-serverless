@@ -9,7 +9,7 @@ class RegistrationNew(BaseModel):
     credit:typ.Optional[typ.List[int]] = None
     title:typ.Optional[typ.List[str]] = None
     days:typ.Optional[typ.List[str]] = None
-    start_time:typ.Optiona[str] = None
+    start_time:typ.Optional[str] = None
     end_time:typ.Optional[str] = None
     instructor:typ.Optional[typ.List[str]] = None
     attribute:typ.Optional[typ.List[str]] = None 

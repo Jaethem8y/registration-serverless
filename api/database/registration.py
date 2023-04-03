@@ -60,5 +60,9 @@ async def get_filtered_registration_new(pool,filter):
         for i in filter.attribute:
             query += f"'{i}',"
         query += ")"
+    if filter.start_time is not None:
+        query += "AND start_time >= " + filter.start_time 
+    if filter.end_time is not None:
+        query += "AND end_time <= " + filter.end_time;
     query += ";"
     return await sql.get_multiple_rows(pool, query)
