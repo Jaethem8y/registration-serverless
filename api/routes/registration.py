@@ -1,9 +1,18 @@
 from fastapi import APIRouter, Request
+from api.service import registration
+from api.schema.registrations import RegistrationNew
 
 router = APIRouter()
 
-@router.get("/")
-async def get_single_table(request:Request):
-    pass
+@router.get(path="/legacy")
+async def get_registrations_legacy(request:Request):
+    return await registration.get_all_registration_legacy(request.state.pool)
 
-    
+@router.get(path="/new")
+async def get_registrations_new(request:Request):
+    print("ok")
+    return await registration.get_all_registration_new(request.state.pool)
+
+@router.post(path="/new/fitler")
+async def get_filtered_registration_new(request:Request, filter:RegistrationNew):
+    return await registration.get_filtered_registration_new(request.pool, filter)

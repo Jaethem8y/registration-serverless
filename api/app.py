@@ -2,8 +2,9 @@ from fastapi import FastAPI, Request
 from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
-from routes.registration import router
-from db import host, port, user, password, database
+
+from api.routes.registration import router
+from api.db import host, port, user, password, database
 
 import aiomysql
 
@@ -43,6 +44,10 @@ async def db_session_middleware(request: Request, call_next):
     response = await call_next(request)
     return response
 
+# Example route
+@app.get("/")
+async def root():
+    return "Danner Danner Danner Danner"
 app.include_router(router)
 
 handler = Mangum(app)
