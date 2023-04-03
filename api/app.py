@@ -23,8 +23,6 @@ app = FastAPI(
     description="registration app for CS191",
     version="0.0.1",
     middleware=middleware,
-    root_path="/dev",
-    docs_url='/docs',
     # openapi_url='/dev/openapi.json', 
     redoc_url=None
 )
