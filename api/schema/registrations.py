@@ -14,3 +14,12 @@ class RegistrationNew(BaseModel):
     instructor:typ.Optional[typ.List[str]] = None
     attribute:typ.Optional[typ.List[str]] = None 
     
+
+class RegistrationLegacy(BaseModel):
+    term: typ.Optional[typ.List[str]] = None   
+    subject: typ.Optional[typ.List[str]] = None
+    title: typ.Optional[typ.List[str]] = None
+    campus: typ.Optional[typ.List[str]] = None
+    type: typ.Optional[typ.List[str]] = None
+    last_name: typ.Optional[typ.List[str]] = None
+    first_name: typ.Optional[typ.List[str]] = None

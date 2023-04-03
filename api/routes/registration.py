@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 from api.service import registration
-from api.schema.registrations import RegistrationNew
+from api.schema.registrations import RegistrationNew, RegistrationLegacy
 
 router = APIRouter()
 
@@ -16,3 +16,7 @@ async def get_registrations_new(request:Request):
 @router.post(path="/new/fitler")
 async def get_filtered_registration_new(request:Request, filter:RegistrationNew):
     return await registration.get_filtered_registration_new(request.pool, filter)
+
+@router.post(path="/legacy/filter")
+async def get_filtered_registration_legacy(request:Request, filter:RegistrationLegacy):
+    return await registration.get_filtered_registration_legacy(request.pool, filter)

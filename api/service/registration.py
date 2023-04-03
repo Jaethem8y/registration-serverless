@@ -10,5 +10,9 @@ async def get_all_registration_new(pool):
 async def get_filtered_registration_new(pool,filter):
     return await registration.get_filtered_registration_new(pool,filter)
 
+async def get_filtered_registration_legacy(pool,filter):
+    return await registration.get_filtered_registration_legacy(pool,filter)
+
+
 
 
