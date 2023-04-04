@@ -1,8 +1,9 @@
-FROM python:3.9-slim
-  
-WORKDIR app/src
+FROM public.ecr.aws/lambda/python:3.8
 
-COPY ./requirements.txt ./
-RUN pip3 install -r requirements.txt
-COPY ./ ./
-CMD ["nohup","uvicorn","api:app","--port","3002","--host","0.0.0.0"]
+COPY requirements.txt  .
+RUN  pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+
+COPY .env "${LAMBDA_TASK_ROOT}"
+COPY ./api /var/task/api
+
+CMD ["api.app.handler"]
