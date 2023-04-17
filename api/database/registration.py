@@ -9,50 +9,49 @@ async def get_all_registration_new(pool):
     return await sql.get_multiple_rows(pool, query)
 
 async def get_filtered_registration_new(pool,filter):
-    print(filter)
     query = "SELECT * FROM registration_new WHERE 1 = 1 "
-    if len(filter.term) is not 0:
+    if len(filter.term) != 0:
         query += "AND term IN ("
         for i in filter.term:
             query += f"'{i}',"
         query += ")"
-    if len(filter.subject) is not 0:
+    if len(filter.subject) != 0:
         query += "AND subject IN ("
         for i in filter.subject:
             # TODO make this add commas correctly. previous version would break with query += f"'{i}',"
             query += f"'{i}'"
         query += ")"
-    if len(filter.section) is not 0:
+    if len(filter.section) != 0:
         query += "AND section IN ("
         for i in filter.section:
             query += f"'{i}',"
         query += ")"
-    if len(filter.campus) is not 0:
+    if len(filter.campus) != 0:
         query += "AND campus IN ("
         for i in filter.campus:
             query += f"'{i}',"
         query += ")"
-    if len(filter.credit) is not 0:
+    if len(filter.credit) != 0:
         query += "AND credit IN ("
         for i in filter.credit:
             query += f"'{i}',"
         query += ")"
-    if len(filter.title) is not 0:
+    if len(filter.title) != 0:
         query += "AND title IN ("
         for i in filter.title:
             query += f"'{i}',"
         query += ")"
-    if len(filter.days) is not 0:
+    if len(filter.days) != 0:
         query += "AND days IN ("
         for i in filter.days:
             query += f"'{i}',"
         query += ")"
-    if len(filter.instructor) is not 0:
+    if len(filter.instructor) != 0:
         query += "AND instructor IN ("
         for i in filter.instructor:
             query += f"'{i}',"
         query += ")"
-    if len(filter.attribute) is not 0:
+    if len(filter.attribute) != 0:
         query += "AND attribute IN ("
         for i in filter.attribute:
             query += f"'{i}',"
