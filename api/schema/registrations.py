@@ -2,17 +2,17 @@ from pydantic import BaseModel
 import typing as typ
 
 class RegistrationNew(BaseModel):
-    term: typ.Optional[typ.List[str]] = None   
-    subject:typ.Optional[typ.List[str]] = None
-    section:typ.Optional[typ.List[str]] = None
-    campus:typ.Optional[typ.List[str]] = None
-    credit:typ.Optional[typ.List[int]] = None
-    title:typ.Optional[typ.List[str]] = None
-    days:typ.Optional[typ.List[str]] = None
+    term: typ.Optional[typ.List[str]] = []  
+    subject:typ.Optional[typ.List[str]] = []
+    section:typ.Optional[typ.List[str]] = []
+    campus:typ.Optional[typ.List[str]] = []
+    credit:typ.Optional[typ.List[int]] = []
+    title:typ.Optional[typ.List[str]] = []
+    days:typ.Optional[typ.List[str]] = []
     start_time:typ.Optional[str] = None
     end_time:typ.Optional[str] = None
-    instructor:typ.Optional[typ.List[str]] = None
-    attribute:typ.Optional[typ.List[str]] = None 
+    instructor:typ.Optional[typ.List[str]] = []
+    attribute:typ.Optional[typ.List[str]] = [] 
     
 
 class RegistrationLegacy(BaseModel):
