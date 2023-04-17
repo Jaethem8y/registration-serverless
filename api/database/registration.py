@@ -9,48 +9,50 @@ async def get_all_registration_new(pool):
     return await sql.get_multiple_rows(pool, query)
 
 async def get_filtered_registration_new(pool,filter):
-    query = "SELECT * FROM registration_new WHERE 1 == 1"
-    if filter.term is not None:
+    print(filter)
+    query = "SELECT * FROM registration_new WHERE 1 = 1 "
+    if len(filter.term) is not 0:
         query += "AND term IN ("
         for i in filter.term:
             query += f"'{i}',"
         query += ")"
-    if filter.subject is not None:
+    if len(filter.subject) is not 0:
         query += "AND subject IN ("
         for i in filter.subject:
-            query += f"'{i}',"
+            # TODO make this add commas correctly. previous version would break with query += f"'{i}',"
+            query += f"'{i}'"
         query += ")"
-    if filter.section is not None:
+    if len(filter.section) is not 0:
         query += "AND section IN ("
         for i in filter.section:
             query += f"'{i}',"
         query += ")"
-    if filter.campus is not None:
+    if len(filter.campus) is not 0:
         query += "AND campus IN ("
         for i in filter.campus:
             query += f"'{i}',"
         query += ")"
-    if filter.credit is not None:
+    if len(filter.credit) is not 0:
         query += "AND credit IN ("
         for i in filter.credit:
             query += f"'{i}',"
         query += ")"
-    if filter.title is not None:
+    if len(filter.title) is not 0:
         query += "AND title IN ("
         for i in filter.title:
             query += f"'{i}',"
         query += ")"
-    if filter.days is not None:
+    if len(filter.days) is not 0:
         query += "AND days IN ("
         for i in filter.days:
             query += f"'{i}',"
         query += ")"
-    if filter.instructor is not None:
+    if len(filter.instructor) is not 0:
         query += "AND instructor IN ("
         for i in filter.instructor:
             query += f"'{i}',"
         query += ")"
-    if filter.attribute is not None:
+    if len(filter.attribute) is not 0:
         query += "AND attribute IN ("
         for i in filter.attribute:
             query += f"'{i}',"

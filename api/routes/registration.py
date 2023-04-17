@@ -13,10 +13,11 @@ async def get_registrations_new(request:Request):
     print("ok")
     return await registration.get_all_registration_new(request.state.pool)
 
-@router.post(path="/new/fitler")
+@router.post(path="/new/filter")
 async def get_filtered_registration_new(request:Request, filter:RegistrationNew):
-    return await registration.get_filtered_registration_new(request.pool, filter)
+    print(filter)
+    return await registration.get_filtered_registration_new(request.state.pool, filter)
 
 @router.post(path="/legacy/filter")
 async def get_filtered_registration_legacy(request:Request, filter:RegistrationLegacy):
-    return await registration.get_filtered_registration_legacy(request.pool, filter)
+    return await registration.get_filtered_registration_legacy(request.state.pool, filter)
